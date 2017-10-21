@@ -1,13 +1,16 @@
 {
   "guestList": [
     {
+      "id": 1,
       "name": "John Jameson"
     },
     {
+      "id": 2,
       "name": "Sam Stuarts",
       "email": "sam@stuarts.com"
     },
     {
+      "id": 3,
       "name": "Matt Michaels",
       "email": "matt@michaels.com"
     }

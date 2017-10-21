@@ -3,9 +3,8 @@ import axios from 'axios'
 export const FETCH_GUESTS = 'FETCH_GUESTS'
 export const FETCH_GUESTS_SUCCESS = 'FETCH_GUESTS_SUCCESS'
 export const FETCH_GUESTS_FAIL = 'FETCH_GUESTS_FAIL'
-export const SET_SORTING = 'SET_SORTING'
 
-const ROOT_URL = '/atendees'
+const ROOT_URL = '/attendees'
 
 export const fetchGuests = () => {
   return function (dispatch) {
@@ -19,8 +18,3 @@ export const fetchGuests = () => {
       })
   }
 }
-
-export const setSortingFilter = (sortType) => ({
-  type: SET_SORTING,
-  sortType
-})
