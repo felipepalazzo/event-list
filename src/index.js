@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { createLogger } from 'redux-logger'
+import reducers from './reducers'
 import Root from './components/Root'
 import registerServiceWorker from './registerServiceWorker'
 
-const store = {}
+const middleware = applyMiddleware(createLogger(), thunk)
+const store = createStore(reducers, middleware)
 
 ReactDOM.render(
   <Root store={store} />,
