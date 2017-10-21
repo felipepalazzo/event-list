@@ -7,7 +7,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 
 app.get('/atendees', (req, res) => {
   const atendeesList = fs.readFileSync(__dirname + '/data/data.json')
-  res.json(JSON.parse(atendeesList))
+  res.json(JSON.parse(atendeesList).guestList)
 })
 
 app.get('/', (req, res) => {
