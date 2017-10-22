@@ -2,7 +2,8 @@ import {
   FETCH_GUEST,
   FETCH_GUEST_SUCCESS,
   FETCH_GUEST_FAIL,
-  SEND_FORM
+  SEND_FORM,
+  UPDATE
 } from '../actions'
 
 const initialState = {
@@ -30,13 +31,27 @@ const fetchGuest = (state = initialState, action) => {
       error: action.payload,
     }
   case SEND_FORM:
+    if (state.guest.id !== action.id) {
+      return state
+    }
     return {
       ...state,
       guest: {
         ...state.guest,
-        id: action.id,
         postcode: action.postcode,
         optedin: action.optedin
+      }
+    }
+  case UPDATE:
+    if (state.guest.id !== action.id) {
+      return state
+    }
+    return {
+      ...state,
+      guest: {
+        ...state.guest,
+        name: action.name,
+        email: action.email
       }
     }
   default:
