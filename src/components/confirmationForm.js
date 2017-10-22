@@ -50,6 +50,7 @@ class confirmationForm extends Component {
         />
         <Checkbox
           name="optedin"
+          style={styles.checkbox}
           label="Receive marketing emails"
           onCheck={this.handleInputChange}
         />
@@ -60,6 +61,13 @@ class confirmationForm extends Component {
           onClick={this.handleClick} />
       </div>
     )
+  }
+}
+
+const styles = {
+  checkbox: {
+    paddingTop: 10,
+    paddingBottom: 20,
   }
 }
 
