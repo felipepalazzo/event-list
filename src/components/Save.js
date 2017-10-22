@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 class Save extends Component {
   render() {
     const { guest } = this.props
-    console.log(guest)
+    console.log('Details captured from the user:', guest)
     return null
   }
 }

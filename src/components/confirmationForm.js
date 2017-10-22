@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField'
 import Checkbox from 'material-ui/Checkbox'
+import Success from './Success'
 import RaisedButton from 'material-ui/RaisedButton'
-import MailDispatch from './MailDispatch'
-import Save from './Save'
 import { connect } from 'react-redux'
 import { sendForm } from '../actions'
 
@@ -33,12 +33,13 @@ class confirmationForm extends Component {
       postcode: this.state.postcode,
       optedin: this.state.optedin,
     }))
-    if (this.state.optedin) {
-      this.setState({ shouldSendEmail: true })
-    }
+    this.setState({ shouldSendEmail: true })
   }
   render(){
     const shouldSendEmail = this.state.shouldSendEmail
+    if (shouldSendEmail) {
+      return (<Success />)
+    }
     return (
       <div>
         <TextField
@@ -52,13 +53,19 @@ class confirmationForm extends Component {
           label="Receive marketing emails"
           onCheck={this.handleInputChange}
         />
-        <RaisedButton label="Save" primary={true} onClick={this.handleClick} />
-        {
-          shouldSendEmail ? (<div><MailDispatch /><Save /></div>) : ''
-        }
+        <RaisedButton
+          label="Save"
+          disabled={!this.state.optedin}
+          primary={true}
+          onClick={this.handleClick} />
       </div>
     )
   }
+}
+
+confirmationForm.propTypes = {
+  match: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect()(confirmationForm)
