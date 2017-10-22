@@ -32,15 +32,14 @@ class confirmationForm extends Component {
       postcode: this.state.postcode,
       optedin: this.state.optedin,
     }))
-    this.setState({ shouldSendEmail: true })
+    if (this.state.optedin) {
+      this.setState({ shouldSendEmail: true })
+    }
   }
   render(){
     const shouldSendEmail = this.state.shouldSendEmail
     return (
       <div>
-        {
-          shouldSendEmail ? (<MailDispatch />) : ''
-        }
         <TextField
           name="postcode"
           value={this.state.postcode}
@@ -53,6 +52,9 @@ class confirmationForm extends Component {
           onCheck={this.handleInputChange}
         />
         <RaisedButton label="Save" primary={true} onClick={this.handleClick} />
+        {
+          shouldSendEmail ? (<MailDispatch />) : ''
+        }
       </div>
     )
   }
