@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Thanks = () => 'thanks for signing up!'
+const Thanks = () => <p>thanks for signing up!</p>
 
 export default Thanks
