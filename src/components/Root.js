@@ -1,16 +1,15 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import App from './App'
-import EditAttendee from './EditAttendee'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <div>
-        <Route exact path="/" component={App}/>
-        <Route path="/attendees/:id" component={EditAttendee}/>
-      </div>
+      <MuiThemeProvider>
+        <App></App>
+      </MuiThemeProvider>
     </Router>
   </Provider>
 )

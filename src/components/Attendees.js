@@ -11,7 +11,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table'
 import RaisedButton from 'material-ui/RaisedButton'
-import { fetchGuests } from '../actions'
+import { listGuests } from '../actions'
 
 class Attendees extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Attendees extends Component {
     this.handleRowSelection = this.handleRowSelection.bind(this)
   }
   componentDidMount() {
-    this.props.dispatch(fetchGuests())
+    this.props.dispatch(listGuests())
   }
   handleRowSelection(selectedRows) {
     this.setState({
@@ -83,7 +83,7 @@ Attendees.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const { guests, error, fetched, fetching } = state
+  const { guests, error, fetched, fetching } = state.fetchGuests
   return {
     guests,
     fetched,
