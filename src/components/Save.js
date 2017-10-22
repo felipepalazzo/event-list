@@ -10,13 +10,6 @@ class Save extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { guest } = state.fetchGuest
-  return { guest }
-}
-
-export default connect(mapStateToProps)(Save)
-
 Save.propTypes = {
   guest: PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -24,3 +17,10 @@ Save.propTypes = {
     email: PropTypes.string,
   }).isRequired
 }
+
+const mapStateToProps = (state) => {
+  const { guest } = state.fetchGuest
+  return { guest }
+}
+
+export default connect(mapStateToProps)(Save)

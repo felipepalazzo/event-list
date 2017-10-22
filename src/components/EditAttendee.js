@@ -23,7 +23,7 @@ class EditAttendee extends Component {
     dispatch(listGuest(match.params.id))
   }
   componentWillReceiveProps(nextProps){
-    if (nextProps.guest && nextProps.guest.id === this.state.id) {
+    if (nextProps.guest) {
       this.setState(nextProps.guest)
     }
   }
