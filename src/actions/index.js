@@ -8,6 +8,8 @@ export const FETCH_GUEST = 'FETCH_GUEST'
 export const FETCH_GUEST_SUCCESS = 'FETCH_GUEST_SUCCESS'
 export const FETCH_GUEST_FAIL = 'FETCH_GUEST_FAIL'
 
+export const SEND_FORM = 'SEND_FORM'
+
 const ROOT_URL = '/attendees'
 
 export const listGuests = () => {
@@ -35,3 +37,10 @@ export const listGuest = (id) => {
       })
   }
 }
+
+export const sendForm = ({id, postcode, optedin}) => ({
+  type: SEND_FORM,
+  id,
+  postcode,
+  optedin
+})

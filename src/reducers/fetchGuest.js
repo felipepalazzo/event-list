@@ -2,6 +2,7 @@ import {
   FETCH_GUEST,
   FETCH_GUEST_SUCCESS,
   FETCH_GUEST_FAIL,
+  SEND_FORM
 } from '../actions'
 
 const initialState = {
@@ -27,6 +28,16 @@ const fetchGuest = (state = initialState, action) => {
       ...state,
       fetching: false,
       error: action.payload,
+    }
+  case SEND_FORM:
+    return {
+      ...state,
+      guest: {
+        ...state.guest,
+        id: action.id,
+        postcode: action.postcode,
+        optedin: action.optedin
+      }
     }
   default:
     return state
