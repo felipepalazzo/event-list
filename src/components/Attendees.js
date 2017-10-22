@@ -45,7 +45,7 @@ class Attendees extends Component {
           <TableBody>
             {guests.map((guest, index) => (
               <TableRow key={guest.id} selected={this.isSelected(index)}>
-                <TableRowColumn>{guest.id} - {guest.name}</TableRowColumn>
+                <TableRowColumn>{guest.name}</TableRowColumn>
                 <TableRowColumn>{guest.email}</TableRowColumn>
                 <TableRowColumn>{
                   !this.isSelected(index)
@@ -58,7 +58,7 @@ class Attendees extends Component {
             ))}
           </TableBody>
         </Table>
-        { fetching &&
+        { !guests.length && fetching &&
           <div>Loading....</div>
         }
         { error &&
