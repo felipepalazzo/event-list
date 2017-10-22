@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import PropTypes from 'prop-types'
@@ -47,10 +48,12 @@ class EditAttendee extends Component {
           onChange={this.handleInputChange}
         />
         <br/><br/>
-        <RaisedButton
-          label="Next"
-          primary={true}
-          disabled={!this.state.name || !this.state.email} />
+        <Link to={`/attendees/${this.state.id}/postcode`}>
+          <RaisedButton
+            label="Next"
+            primary={true}
+            disabled={!this.state.name || !this.state.email} />
+        </Link>
       </div>
     )
   }
