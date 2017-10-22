@@ -21,7 +21,7 @@ MailDispatch.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const { guest } = state.fetchGuest
+  const { guest } = state.guest
   return { guest }
 }
 

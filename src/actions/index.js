@@ -9,7 +9,7 @@ export const FETCH_GUEST_SUCCESS = 'FETCH_GUEST_SUCCESS'
 export const FETCH_GUEST_FAIL = 'FETCH_GUEST_FAIL'
 
 export const SEND_FORM = 'SEND_FORM'
-export const UPDATE = 'UPDATE'
+export const UPDATE_GUEST = 'UPDATE_GUEST'
 
 const ROOT_URL = '/attendees'
 
@@ -46,8 +46,8 @@ export const sendForm = ({id, postcode, optedin}) => ({
   optedin
 })
 
-export const update = ({id, name, email}) => ({
-  type: UPDATE,
+export const updateGuest = ({id, name, email}) => ({
+  type: UPDATE_GUEST,
   id,
   name,
   email,

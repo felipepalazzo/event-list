@@ -3,7 +3,7 @@ import {
   FETCH_GUEST_SUCCESS,
   FETCH_GUEST_FAIL,
   SEND_FORM,
-  UPDATE
+  UPDATE_GUEST
 } from '../actions'
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
   error: null,
 }
 
-const fetchGuest = (state = initialState, action) => {
+const guest = (state = initialState, action) => {
   switch (action.type) {
   case FETCH_GUEST:
     return {...state, fetching: true}
@@ -42,7 +42,7 @@ const fetchGuest = (state = initialState, action) => {
         optedin: action.optedin
       }
     }
-  case UPDATE:
+  case UPDATE_GUEST:
     if (state.guest.id !== action.id) {
       return state
     }
@@ -59,4 +59,4 @@ const fetchGuest = (state = initialState, action) => {
   }
 }
 
-export default fetchGuest
+export default guest

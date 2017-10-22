@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { listGuest, update } from '../actions'
+import { listGuest, updateGuest } from '../actions'
 
 class EditAttendee extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class EditAttendee extends Component {
     })
   }
   handleClick() {
-    this.props.dispatch(update({
+    this.props.dispatch(updateGuest({
       id: this.state.id,
       name: this.state.name,
       email: this.state.email,
@@ -85,7 +85,7 @@ EditAttendee.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const { guest } = state.fetchGuest
+  const { guest } = state.guest
   return { guest }
 }
 
