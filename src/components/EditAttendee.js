@@ -62,8 +62,6 @@ class EditAttendee extends Component {
 EditAttendee.propTypes = {
   match: PropTypes.object,
   dispatch: PropTypes.func.isRequired,
-  fetching: PropTypes.bool.isRequired,
-  error: PropTypes.object,
   guest: PropTypes.shape({
     id: PropTypes.number,
     name: PropTypes.string,
@@ -72,13 +70,8 @@ EditAttendee.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-  const { guest, error, fetched, fetching } = state.fetchGuest
-  return {
-    guest,
-    fetched,
-    fetching,
-    error,
-  }
+  const { guest } = state.fetchGuest
+  return { guest }
 }
 
 export default connect(mapStateToProps)(EditAttendee)

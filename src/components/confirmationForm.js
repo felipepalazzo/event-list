@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'
 import Checkbox from 'material-ui/Checkbox'
 import RaisedButton from 'material-ui/RaisedButton'
 import MailDispatch from './MailDispatch'
+import Save from './Save'
 import { connect } from 'react-redux'
 import { sendForm } from '../actions'
 
@@ -53,7 +54,7 @@ class confirmationForm extends Component {
         />
         <RaisedButton label="Save" primary={true} onClick={this.handleClick} />
         {
-          shouldSendEmail ? (<MailDispatch />) : ''
+          shouldSendEmail ? (<div><MailDispatch /><Save /></div>) : ''
         }
       </div>
     )
