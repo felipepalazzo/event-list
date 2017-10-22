@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextField from 'material-ui/TextField'
 import Checkbox from 'material-ui/Checkbox'
 import RaisedButton from 'material-ui/RaisedButton'
+import MailDispatch from './MailDispatch'
 import { connect } from 'react-redux'
 import { sendForm } from '../actions'
 
@@ -12,6 +13,7 @@ class confirmationForm extends Component {
       id: parseInt(props.match.params.id),
       postcode: '',
       optedin: false,
+      shouldSendEmail: false,
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -30,10 +32,15 @@ class confirmationForm extends Component {
       postcode: this.state.postcode,
       optedin: this.state.optedin,
     }))
+    this.setState({ shouldSendEmail: true })
   }
   render(){
+    const shouldSendEmail = this.state.shouldSendEmail
     return (
       <div>
+        {
+          shouldSendEmail ? (<MailDispatch />) : ''
+        }
         <TextField
           name="postcode"
           value={this.state.postcode}
